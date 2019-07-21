@@ -1,12 +1,56 @@
 Crypto Sign
 ===========
 
-Crypto Sign is my personal submission to the following code challenge.
+Crypto Sign is my personal submission to the code challenge prompt found at the
+bottom of this document.
 
-Code Challenge
---------------
+Installing
+----------
 
-http://info.smartperimeter.io/jobs/codechallenge
+This is intended to be used on Unix based file systems.
+
+To install this tool you need to have [Go][go] and [Git][git] installed.  You
+also need to have `$GOPATH/bin` included in your `PATH` environment variable.
+
+Run:
+
+	$ go get -u github.com/KiraFox/crypto-sign-challenge
+
+**Note:** _This same command can be used to update your copy of this project._
+
+[go]: https://golang.org/
+[git]: https://git-scm.com/
+
+
+Usage
+-----
+
+    crypto-sign-challenge MESSAGE
+
+`MESSAGE` is the message you wish to sign with your private key.  The message
+must be 250 characters or less.
+
+The following is an example with output included.
+
+```
+$ crypto-sign-challenge 'Welcome to the Jungle'
+{
+    "message": "Welcome to the Jungle",
+    "signature": "MIGIAkIBHEc8FETUYOPze9YxePzBfN2OjbstTYQxfViHu6vziSfDbM5iJ8jCmH3LkScgoTNCRBAMBY407jDC/fYq88iN22cCQgCmytbObfzxtHWHpcYFvOb3PHHDKlv+rtAZJ/+AdxBvihjY/xRDi1PH8GhyEgzW7xzJ1KF7BhqmeMwH9pXUCx6JiA==",
+    "pubkey": "-----BEGIN PUBLIC KEY-----\nMIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQAxMXE/k5LOn1ZeSNgILi/fsDyHwwW\nSugmEndN786laNFUJ0Ulzit1FumnY71Op7Gwuqrv+YoqrEwpHtpnV8mLgvEBr9sX\ncNatfZzPtjOLpHzkVfLSCX94E7uNUZx13eigwugCsR87rn94CLRU3GDbLnLO6W4f\n12FkAhynQpvqaWNKpn8=\n-----END PUBLIC KEY-----\n"
+}
+```
+
+Storage
+-------
+
+This project will generate a new private key if it does not exist and will store
+it in:
+
+    $HOME/.local/share/signer
+
+Code Challenge Prompt
+---------------------
 
 We want to see how you think, how you write code, and the effort you put into
 your work.
